@@ -2,15 +2,12 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { SEO_DEFAULTS, CONTACT_INFO } from '../lib/constants'
-// In your app/layout.js, add this before the closing body tag
-import WhatsAppButton from '../components/WhatsAppButton';
 
-// Inside your RootLayout component, add:
-<WhatsAppButton />
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
   preload: true,
+  variable: '--font-inter',
 })
 
 export const metadata = {
@@ -48,7 +45,7 @@ export const metadata = {
     title: SEO_DEFAULTS.title,
     description: SEO_DEFAULTS.description,
     images: [SEO_DEFAULTS.ogImage],
-    creator: '@advogadosorocaba',
+    creator: SEO_DEFAULTS.twitterHandle,
   },
   
   // Robots
@@ -63,13 +60,6 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  
-  // Verification (you can add these later if you have them)
-  // verification: {
-  //   google: 'your-google-verification-code',
-  //   yandex: 'your-yandex-verification-code',
-  //   yahoo: 'your-yahoo-verification-code',
-  // },
   
   // Alternates
   alternates: {
@@ -88,6 +78,21 @@ export const metadata = {
     initialScale: 1,
     maximumScale: 1,
   },
+  
+  // Icons
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  
+  // Manifest
+  manifest: '/site.webmanifest',
 }
 
 // Structured Data for the entire website
@@ -169,7 +174,7 @@ const jsonLd = {
       }
     ]
   },
-  'openingHours': 'Mo-Fr 09:00-18:00',
+  'openingHours': 'Mo-Fr 09:00-18:00, Sa 09:00-12:00',
   'priceRange': '$$',
   'sameAs': [
     'https://www.facebook.com/advogadosorocaba',
@@ -182,12 +187,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        
         {/* Preload critical resources */}
         <link
           rel="preload"
@@ -201,22 +200,8 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className={`${inter.className} antialiased`}>
-        {/* Skip to main content for accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-lg z-50"
-        >
-          Pular para o conteúdo principal
-        </a>
         
-        {/* Main content */}
-        <div id="main-content">
-          {children}
-        </div>
-        
-        {/* Schema.org for Organization */}
+        {/* Additional Organization Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -233,6 +218,74 @@ export default function RootLayout({ children }) {
                 'areaServed': 'BR',
                 'availableLanguage': 'pt-BR'
               },
+              'sameAs': [
+                'https://www.facebook.com/advogadosorocaba',
+                'https://www.instagram.com/advogadosorocaba',
+                'https://www.linkedin.com/company/advogadosorocaba'
+              ]
+            })
+          }}
+        />
+      </head>
+      <body className={`${inter.className} ${inter.variable} antialiased`}>
+        {/* Skip to main content for accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-lg z-50"
+        >
+          Pular para o conteúdo principal
+        </a>
+        
+        {/* Main content wrapper */}
+        <div id="main-content" className="min-h-screen flex flex-col">
+          {children}
+        </div>
+        
+        {/* Schema.org for Local Business */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LegalService',
+              'name': 'Advogados Sorocaba',
+              'image': `${SEO_DEFAULTS.siteUrl}/images/logo.png`,
+              '@id': SEO_DEFAULTS.siteUrl,
+              'url': SEO_DEFAULTS.siteUrl,
+              'telephone': CONTACT_INFO.phoneRaw,
+              'address': {
+                '@type': 'PostalAddress',
+                'streetAddress': 'Sorocaba',
+                'addressLocality': 'Sorocaba',
+                'addressRegion': 'SP',
+                'postalCode': '18000-000',
+                'addressCountry': 'BR'
+              },
+              'geo': {
+                '@type': 'GeoCoordinates',
+                'latitude': -23.5015,
+                'longitude': -47.4581
+              },
+              'openingHoursSpecification': [
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  'dayOfWeek': [
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday'
+                  ],
+                  'opens': '09:00',
+                  'closes': '18:00'
+                },
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  'dayOfWeek': 'Saturday',
+                  'opens': '09:00',
+                  'closes': '12:00'
+                }
+              ],
               'sameAs': [
                 'https://www.facebook.com/advogadosorocaba',
                 'https://www.instagram.com/advogadosorocaba',

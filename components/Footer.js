@@ -1,12 +1,15 @@
 // components/Footer.js
 import Link from 'next/link';
-import { CONTACT_INFO, SOCIAL_LINKS, NAVIGATION_MENU, PRACTICE_AREAS } from '../lib/constants';
+import { CONTACT_INFO, SOCIAL_LINKS, NAVIGATION_MENU, COMPANY_INFO, getCurrentYear } from '../lib/constants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   // Get practice areas from navigation for consistency
   const practiceAreas = NAVIGATION_MENU.find(item => item.name === 'Atuação')?.items || [];
+
+  // Main navigation links (excluding dropdown)
+  const mainLinks = NAVIGATION_MENU.filter(item => item.type === 'link');
 
   return (
     <footer className="bg-gray-900 text-white" aria-labelledby="footer-heading">
@@ -19,12 +22,12 @@ export default function Footer() {
           {/* Brand & Contact Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-sm">AS</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Advogados Sorocaba</h3>
-                <p className="text-blue-200 text-sm">Escritório de Advocacia</p>
+                <h3 className="text-xl font-bold text-white">{COMPANY_INFO.name}</h3>
+                <p className="text-blue-200 text-sm">{COMPANY_INFO.slogan}</p>
               </div>
             </div>
             
@@ -58,7 +61,7 @@ export default function Footer() {
                 <span className="font-medium">{CONTACT_INFO.email}</span>
               </a>
 
-              <div className="flex items-center space-x-3 text-gray-300 group">
+              <div className="flex items-center space-x-3 text-gray-300">
                 <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -71,10 +74,10 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6 border-l-4 border-blue-500 pl-3">
-              Navegação
+              Navegação Rápida
             </h3>
             <ul className="space-y-3" role="list">
-              {NAVIGATION_MENU.filter(item => item.type === 'link').map((item) => (
+              {mainLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -109,24 +112,24 @@ export default function Footer() {
           {/* WhatsApp CTA & Social */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6 border-l-4 border-blue-500 pl-3">
-              Atendimento
+              Atendimento Rápido
             </h3>
             
             {/* WhatsApp CTA */}
             <div className="bg-gray-800 rounded-xl p-6 mb-6">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-md">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.189-1.248-6.189-3.515-8.444"/>
                   </svg>
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">WhatsApp</h4>
-                  <p className="text-green-400 text-sm">Atendimento Rápido</p>
+                  <p className="text-green-400 text-sm">Atendimento Imediato</p>
                 </div>
               </div>
               <p className="text-gray-300 text-sm mb-4">
-                Entre em contato diretamente pelo WhatsApp para uma consulta rápida.
+                Entre em contato diretamente pelo WhatsApp para uma consulta rápida e personalizada.
               </p>
               <a
                 href={`https://wa.me/${CONTACT_INFO.whatsapp.number}?text=${encodeURIComponent(CONTACT_INFO.whatsapp.message)}`}
@@ -142,10 +145,13 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Social Links */}
+            {/* Social Media Links */}
             <div>
               <h4 className="text-white font-semibold mb-4">Siga-nos</h4>
-              <div className="flex space-x-4">
+              <p className="text-gray-300 text-sm mb-4">
+                Acompanhe nossas redes sociais para ficar por dentro das novidades jurídicas.
+              </p>
+              <div className="flex space-x-3">
                 {SOCIAL_LINKS.facebook && (
                   <a
                     href={SOCIAL_LINKS.facebook}
@@ -169,7 +175,7 @@ export default function Footer() {
                     aria-label="Siga-nos no Instagram"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12.017 0C8.396 0 7.987 0.021 6.756 0.106 5.532 0.19 4.705 0.427 3.984 0.748 3.238 1.08 2.603 1.504 1.968 2.139 1.334 2.773 0.909 3.409 0.578 4.155 0.256 4.875 0.02 5.702 -0.064 6.926 -0.148 8.157 -0.169 8.566 -0.169 12.187c0 3.62 0.021 4.029 0.106 5.26 0.085 1.224 0.322 2.051 0.643 2.772 0.332 0.746 0.756 1.381 1.39 2.015 0.635 0.635 1.271 1.059 2.017 1.391 0.721 0.321 1.548 0.558 2.772 0.643 1.231 0.085 1.64 0.106 5.26 0.106 3.62 0 4.029 -0.021 5.26 -0.106 1.224 -0.085 2.051 -0.322 2.772 -0.643 0.746 -0.332 1.381 -0.756 2.015 -1.39 0.635 -0.636 1.059 -1.272 1.391 -2.018 0.321 -0.72 0.558 -1.547 0.643 -2.771 0.085 -1.231 0.106 -1.64 0.106 -5.26 0 -3.62 -0.021 -4.029 -0.106 -5.26 -0.085 -1.224 -0.322 -2.051 -0.643 -2.772 -0.332 -0.746 -0.756 -1.381 -1.39 -2.016C21.227 1.334 20.591 0.909 19.845 0.578 19.125 0.256 18.298 0.02 17.074 -0.064 15.843 -0.148 15.434 -0.169 11.813 -0.169H12.017zm-0.694 2.179c3.542 0 3.917 0.012 5.131 0.095 1.142 0.078 1.761 0.307 2.174 0.509 0.553 0.27 0.949 0.592 1.365 1.008 0.416 0.416 0.738 0.812 1.008 1.365 0.202 0.413 0.431 1.032 0.509 2.174 0.083 1.214 0.095 1.589 0.095 5.131 0 3.542 -0.012 3.917 -0.095 5.131 -0.078 1.142 -0.307 1.761 -0.509 2.174 -0.27 0.553 -0.592 0.949 -1.008 1.365 -0.416 0.416 -0.812 0.738 -1.365 1.008 -0.413 0.202 -1.032 0.431 -2.174 0.509 -1.214 0.083 -1.589 0.095 -5.131 0.095 -3.542 0 -3.917 -0.012 -5.131 -0.095 -1.142 -0.078 -1.761 -0.307 -2.174 -0.509 -0.553 -0.27 -0.949 -0.592 -1.365 -1.008 -0.416 -0.416 -0.738 -0.812 -1.008 -1.365 -0.202 -0.413 -0.431 -1.032 -0.509 -2.174 -0.083 -1.214 -0.095 -1.589 -0.095 -5.131 0 -3.542 0.012 -3.917 0.095 -5.131 0.078 -1.142 0.307 -1.761 0.509 -2.174 0.27 -0.553 0.592 -0.949 1.008 -1.365 0.416 -0.416 0.812 -0.738 1.365 -1.008 0.413 -0.202 1.032 -0.431 2.174 -0.509 1.214 -0.083 1.589 -0.095 5.131 -0.095zM12 5.838c-3.403 0 -6.162 2.759 -6.162 6.162s2.759 6.163 6.162 6.163 6.162 -2.759 6.162 -6.163c0 -3.403 -2.759 -6.162 -6.162 -6.162zm0 10.162c-2.209 0 -4 -1.79 -4 -4 0 -2.209 1.791 -4 4 -4s4 1.791 4 4c0 2.21 -1.791 4 -4 4zm6.406 -11.845c0 0.795 -0.645 1.44 -1.44 1.44 -0.795 0 -1.44 -0.645 -1.44 -1.44 0 -0.795 0.645 -1.44 1.44 -1.44 0.795 0 1.44 0.645 1.44 1.44z"/>
+                      <path d="M12.017 0C8.396 0 7.987 0.021 6.756 0.106 5.532 0.19 4.705 0.427 3.984 0.748 3.238 1.08 2.603 1.504 1.968 2.139 1.334 2.773 0.909 3.409 0.578 4.155 0.256 4.875 0.02 5.702 -0.064 6.926 -0.148 8.157 -0.169 8.566 -0.169 12.187c0 3.62 0.021 4.029 0.106 5.26 0.085 1.224 0.322 2.051 0.643 2.772 0.332 0.746 0.756 1.381 1.39 2.015 0.635 0.635 1.271 1.059 2.017 1.391 0.721 0.321 1.548 0.558 2.772 0.643 1.231 0.085 1.64 0.106 5.26 0.106 3.62 0 4.029 -0.021 5.26 -0.106 1.224 -0.085 2.051 -0.322 2.772 -0.643 0.746 -0.332 1.381 -0.756 2.015 -1.39 0.635 -0.636 1.059 -1.272 1.391 -2.018 0.321 -0.72 0.558 -1.547 0.643 -2.771 0.085 -1.231 0.106 -1.64 0.106 -5.26 0 -3.62 -0.021 -4.029 -0.106 -5.26 -0.085 -1.224 -0.322 -2.051 -0.643 -2.772 -0.332 -0.746 -0.756 -1.381 -1.39 -2.016C21.227 1.334 20.591 0.909 19.845 0.578 19.125 0.256 18.298 0.02 17.074 -0.064 15.843 -0.148 15.434 -0.169 11.813 -0.169H12.017z"/>
                     </svg>
                   </a>
                 )}
@@ -196,9 +202,12 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-400 text-sm text-center md:text-left">
               <p>
-                © {currentYear} Advogados Sorocaba. Todos os direitos reservados.
+                © {currentYear} {COMPANY_INFO.name}. Todos os direitos reservados.
+              </p>
+              <p className="text-xs text-gray-500 mt-1">
+                OAB/SP Under supervision
               </p>
             </div>
 
@@ -225,9 +234,9 @@ export default function Footer() {
             </div>
 
             {/* Development Credit */}
-            <div className="text-gray-500 text-sm">
+            <div className="text-gray-500 text-sm text-center md:text-right">
               <p>
-                Desenvolvido com ❤️ para Advogados Sorocaba
+                Desenvolvido com ❤️ para {COMPANY_INFO.name}
               </p>
             </div>
           </div>

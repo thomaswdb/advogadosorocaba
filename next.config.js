@@ -1,8 +1,7 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['advogadosorocaba.vercel.app'],
+    domains: ['advogadosorocaba.vercel.app', 'localhost'],
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -17,6 +16,10 @@ const nextConfig = {
   compress: true,
   // Generate source maps for production debugging
   productionBrowserSourceMaps: false,
+  // Enable trailing slashes for better SEO
+  trailingSlash: true,
+  // Optimize for static export if needed
+  output: 'standalone',
 }
 
 module.exports = nextConfig
