@@ -1,0 +1,339 @@
+/* Additional Styles for Multi-page Site */
+
+/* Logo Image */
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Active Navigation Link */
+.nav-link.active {
+    color: var(--accent-color);
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Quick Stats Section */
+.quick-stats {
+    padding: 60px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Service Hero */
+.service-hero {
+    padding: 150px 0 80px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+.service-hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Service Content */
+.service-content {
+    padding: 80px 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+}
+
+.content-main h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.content-main h3 {
+    color: var(--secondary-color);
+    margin: 2rem 0 1rem;
+}
+
+.service-features {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature {
+    padding: 1.5rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.feature h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-top: 3rem;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1rem;
+    background: var(--background-color);
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.faq-answer {
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 1rem;
+    max-height: 200px;
+}
+
+.faq-item.active .faq-question::after {
+    content: '-';
+}
+
+/* Sidebar */
+.sidebar-widget {
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.sidebar-widget h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.sidebar-widget ul {
+    list-style: none;
+}
+
+.sidebar-widget li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-widget a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.sidebar-widget a:hover {
+    color: var(--accent-color);
+}
+
+/* Video Section */
+.video-section {
+    padding: 80px 0;
+    background: var(--background-color);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.video-cta {
+    text-align: center;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* Footer Updates */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    border-top: 1px solid #4a5568;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+/* Secondary Button */
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.cta-button.small {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* Service Link in Cards */
+.service-link {
+    color: var(--accent-color);
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-link {
+    transform: translateX(5px);
+}
+
+/* Section Subtitle */
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-buttons,
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .cta-button,
+    .cta-buttons .cta-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
