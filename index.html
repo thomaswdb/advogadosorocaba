@@ -3,24 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advogados Sorocaba - Escritório de Advocacia</title>
-    <meta name="description" content="Escritório de advocacia em Sorocaba especializado em direito civil, trabalhista, empresarial e familiar.">
+    <title>Dias Batista Advogados - Escritório de Advocacia em Sorocaba</title>
+    <meta name="description" content="Escritório Dias Batista Advogados em Sorocaba. Especialistas em Direito Trabalhista, Empresarial, Civil e Família. Atendimento personalizado há mais de 15 anos.">
+    <meta name="keywords" content="advogado sorocaba, escritório advocacia sorocaba, direito trabalhista, direito empresarial, advogado trabalhista sorocaba, advogado empresarial sorocaba">
+    <link rel="canonical" href="https://www.advogadosorocaba.com.br">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dias Batista Advogados - Escritório de Advocacia em Sorocaba">
+    <meta property="og:description" content="Especialistas em Direito Trabalhista, Empresarial, Civil e Família em Sorocaba">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.advogadosorocaba.com.br">
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Dias Batista Advogados",
+        "description": "Escritório de advocacia em Sorocaba especializado em direito trabalhista, empresarial, civil e familiar",
+        "url": "https://www.advogadosorocaba.com.br",
+        "telephone": "+551533333333",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Example, 123",
+            "addressLocality": "Sorocaba",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+        },
+        "areaServed": "Sorocaba e região",
+        "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00"
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">Advogados Sorocaba</a>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Dias Batista Advogados - Escritório de Advocacia Sorocaba" class="logo-img">
+                </a>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Início</a>
-                <a href="#services" class="nav-link">Áreas de Atuação</a>
-                <a href="#about" class="nav-link">Sobre Nós</a>
-                <a href="#contact" class="nav-link">Contato</a>
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="trabalhista.html" class="nav-link">Direito Trabalhista</a>
+                <a href="empresarial.html" class="nav-link">Direito Empresarial</a>
+                <a href="familia.html" class="nav-link">Direito de Família</a>
+                <a href="civil.html" class="nav-link">Direito Civil</a>
+                <a href="sobre.html" class="nav-link">Sobre Nós</a>
+                <a href="contato.html" class="nav-link">Contato</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span class="bar"></span>
@@ -33,83 +68,107 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Excelência Jurídica em Sorocaba</h1>
-            <p class="hero-subtitle">Defendemos seus direitos com expertise e dedicação</p>
-            <a href="#contact" class="cta-button">Agende uma Consulta</a>
+            <h1 class="hero-title">Dias Batista Advogados</h1>
+            <p class="hero-subtitle">Escritório de Advocacia em Sorocaba - Especialistas em Soluções Jurídicas</p>
+            <div class="hero-buttons">
+                <a href="contato.html" class="cta-button">Agende uma Consulta</a>
+                <a href="#services" class="cta-button secondary">Nossas Especialidades</a>
+            </div>
         </div>
         <div class="hero-background"></div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="quick-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-label">Anos de Experiência</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="500">0</span>
+                    <span class="stat-label">Casos Resolvidos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="98">0</span>
+                    <span class="stat-label">% de Satisfação</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="1000">0</span>
+                    <span class="stat-label">Clientes Atendidos</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Áreas de Atuação</h2>
+            <h2 class="section-title">Nossas Áreas de Atuação</h2>
+            <p class="section-subtitle">Especialistas em diversas áreas do direito para atender todas as suas necessidades jurídicas</p>
             <div class="services-grid">
-                <!-- Services will be populated by JavaScript -->
+                <a href="trabalhista.html" class="service-card fade-in hover-lift">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Direito Trabalhista</h3>
+                    <p>Defesa dos direitos trabalhistas, rescisões, acordos e ações na Justiça do Trabalho em Sorocaba.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </a>
+                <a href="empresarial.html" class="service-card fade-in hover-lift">
+                    <div class="service-icon">🏢</div>
+                    <h3>Direito Empresarial</h3>
+                    <p>Assessoria jurídica para empresas, contratos societários, recuperação judicial em Sorocaba.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </a>
+                <a href="familia.html" class="service-card fade-in hover-lift">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Direito de Família</h3>
+                    <p>Divórcios, inventários, guarda de filhos, pensão alimentícia e adoções em Sorocaba.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </a>
+                <a href="civil.html" class="service-card fade-in hover-lift">
+                    <div class="service-icon">📝</div>
+                    <h3>Direito Civil</h3>
+                    <p>Ações indenizatórias, contratos, responsabilidade civil e direito do consumidor em Sorocaba.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Video Section -->
+    <section class="video-section">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Sobre Nós</h2>
-                    <p>Nosso escritório atua há mais de 15 anos em Sorocaba e região, oferecendo soluções jurídicas personalizadas para cada cliente.</p>
-                    <p>Com uma equipe especializada em diversas áreas do direito, garantimos uma assessoria completa e eficiente.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number" data-count="15">0</span>
-                            <span class="stat-label">Anos de Experiência</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="500">0</span>
-                            <span class="stat-label">Casos Resolvidos</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="98">0</span>
-                            <span class="stat-label">% de Satisfação</span>
-                        </div>
-                    </div>
+            <h2 class="section-title">Conteúdo Jurídico em Vídeo</h2>
+            <p class="section-subtitle">Acompanhe nosso canal no YouTube com explicações sobre direitos e deveres</p>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/?list=UU[CHANNEL_ID]" 
+                            title="Vídeos do Canal Dias Batista Advogados" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
                 </div>
-                <div class="about-image">
-                    <!-- Image placeholder -->
-                </div>
+            </div>
+            <div class="video-cta">
+                <a href="https://www.youtube.com/@DiasBatistaAdvogados" target="_blank" class="cta-button">
+                    📺 Ver Mais Vídeos no YouTube
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>Endereço</h3>
-                        <p>Rua Example, 123 - Centro<br>Sorocaba - SP</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Telefone</h3>
-                        <p>(15) 3333-3333</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Email</h3>
-                        <p>contato@advogadosorocaba.com.br</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Horário de Atendimento</h3>
-                        <p>Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
-                    </div>
+            <div class="cta-content">
+                <h2>Precisa de um Advogado em Sorocaba?</h2>
+                <p>Entre em contato para uma consulta gratuita e avaliaremos seu caso</p>
+                <div class="cta-buttons">
+                    <a href="contato.html" class="cta-button">Fale Conosco</a>
+                    <a href="tel:+551533333333" class="cta-button secondary">Ligue Agora</a>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Seu Nome" required>
-                    <input type="email" placeholder="Seu Email" required>
-                    <input type="tel" placeholder="Seu Telefone">
-                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                    <button type="submit" class="cta-button">Enviar Mensagem</button>
-                </form>
             </div>
         </div>
     </section>
@@ -117,7 +176,30 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 Advogados Sorocaba. Todos os direitos reservados.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dias Batista Advogados</h3>
+                    <p>Escritório de advocacia em Sorocaba com mais de 15 anos de experiência defendendo seus direitos.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Áreas de Atuação</h3>
+                    <ul>
+                        <li><a href="trabalhista.html">Direito Trabalhista</a></li>
+                        <li><a href="empresarial.html">Direito Empresarial</a></li>
+                        <li><a href="familia.html">Direito de Família</a></li>
+                        <li><a href="civil.html">Direito Civil</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>📞 (15) 3333-3333</p>
+                    <p>✉️ contato@advogadosorocaba.com.br</p>
+                    <p>📍 Sorocaba - SP</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dias Batista Advogados. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 

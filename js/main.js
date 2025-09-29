@@ -19,7 +19,26 @@ document.addEventListener('DOMContentLoaded', function() {
             navToggle.classList.remove('active');
         });
     });
+    // Add to existing main.js
+
+// FAQ functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing code ...
     
+    // FAQ Toggle
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            item.classList.toggle('active');
+        });
+    });
+    
+    // YouTube channel ID - replace with actual channel ID
+    const channelId = 'UC[YOUR_CHANNEL_ID]'; // You'll need to get this from your YouTube channel
+    
+    // Could add functionality to fetch latest videos here
+});
     // Services data
     const servicesData = [
         {
