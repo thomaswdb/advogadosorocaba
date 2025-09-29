@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // YouTube channel ID - replace with actual channel ID
-    const channelId = 'UC[YOUR_CHANNEL_ID]'; // You'll need to get this from your YouTube channel
+    const channelId = '@DiasBatistaAdvogados'; // You'll need to get this from your YouTube channel
     
     // Could add functionality to fetch latest videos here
 });
@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const timer = setInterval(() => {
                 current += step;
                 if (current >= target) {
-                    stat.textContent = target + (stat.getAttribute('data-count') === '98' ? '%' : '+');
+                    stat.textContent = target + (stat.getAttribute('data-count') === '99' ? '%' : '+');
                     clearInterval(timer);
                 } else {
-                    stat.textContent = Math.floor(current) + (stat.getAttribute('data-count') === '98' ? '%' : '+');
+                    stat.textContent = Math.floor(current) + (stat.getAttribute('data-count') === '99' ? '%' : '+');
                 }
             }, 16);
         });
