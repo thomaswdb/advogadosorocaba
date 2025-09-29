@@ -1,0 +1,7 @@
+{
+  "/contato/page": "app/contato/page.js",
+  "/areas/trabalhista/page": "app/areas/trabalhista/page.js",
+  "/areas/civil/page": "app/areas/civil/page.js",
+  "/areas/familia/page": "app/areas/familia/page.js",
+  "/page": "app/page.js"
+}
